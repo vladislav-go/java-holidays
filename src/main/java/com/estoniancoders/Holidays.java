@@ -74,15 +74,15 @@ public final class Holidays {
         LocalDate date = null;
 
         if ("GOOD_FRIDAY".equals(movableHoliday.getCode())) {
-            date = getGoodFridayDate(year);
+            date = HolidayCalculator.getGoodFridayDate(year);
         }
 
         if ("EASTER_SUNDAY".equals(movableHoliday.getCode())) {
-            date = getEasterSundayDate(year);
+            date = HolidayCalculator.getEasterSundayDate(year);
         }
 
         if ("PENTECOST".equals(movableHoliday.getCode())) {
-            date = getPentecostDate(year);
+            date = HolidayCalculator.getPentecostDate(year);
         }
 
         if (date != null) {
