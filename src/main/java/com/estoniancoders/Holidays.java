@@ -71,19 +71,7 @@ public final class Holidays {
     private static Holiday convertMovableHoliday(MovableHoliday movableHoliday, int year) {
         Holiday holiday = new Holiday();
         holiday.setName(movableHoliday.getName() + " (movable)");
-        LocalDate date = null;
-
-        if ("GOOD_FRIDAY".equals(movableHoliday.getCode())) {
-            date = HolidayCalculator.getGoodFridayDate(year);
-        }
-
-        if ("EASTER_SUNDAY".equals(movableHoliday.getCode())) {
-            date = HolidayCalculator.getEasterSundayDate(year);
-        }
-
-        if ("PENTECOST".equals(movableHoliday.getCode())) {
-            date = HolidayCalculator.getPentecostDate(year);
-        }
+        LocalDate date = HolidayCalculator.calculateMovableHolidayDate(movableHoliday.getCode(), year);
 
         if (date != null) {
             holiday.setDay(date.getDayOfMonth());

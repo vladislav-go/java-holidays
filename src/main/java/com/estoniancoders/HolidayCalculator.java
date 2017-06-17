@@ -44,4 +44,22 @@ class HolidayCalculator {
     static LocalDate getPentecostDate(int year) {
         return getEasterSundayDate(year).plusDays(49);
     }
+
+    static LocalDate calculateMovableHolidayDate(String holidayCode, int year) {
+        LocalDate date = null;
+
+        if ("GOOD_FRIDAY".equals(holidayCode)) {
+            date = getGoodFridayDate(year);
+        }
+
+        if ("EASTER_SUNDAY".equals(holidayCode)) {
+            date = getEasterSundayDate(year);
+        }
+
+        if ("PENTECOST".equals(holidayCode)) {
+            date = getPentecostDate(year);
+        }
+
+        return date;
+    }
 }
