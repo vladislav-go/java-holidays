@@ -10,7 +10,7 @@ If the holiday lists are out of date or incorrect, please create an issue.
 Custom holidays are also supported.
 
 ### Supported countries
-* **EST** Estonia - [link](https://en.wikipedia.org/wiki/Public_holidays_in_Estonia)
+* **EST** Estonia - [holidays](https://en.wikipedia.org/wiki/Public_holidays_in_Estonia)
 
 ## Import
 JDK 8 or higher is required for the library to work.
