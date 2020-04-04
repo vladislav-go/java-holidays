@@ -5,7 +5,8 @@ Check dates for holidays with this lightweight library.
 Only public holidays, i.e. non-working days, are taken into account.  
 
 ## Holidays
-Holidays for countries are read from JSON files included in the library.  
+Holidays are read from [JSON files](https://github.com/vladislavgoltjajev/java-holidays/tree/master/src/main/resources/holidays) included in the library.  
+If the holiday lists are out of date or incorrect, please create an issue.  
 Custom holidays are also supported.
 
 ### Supported countries
