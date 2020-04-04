@@ -9,7 +9,7 @@ Holidays for countries are read from JSON files included in the library.
 Custom holidays are also supported.
 
 ### Supported countries
-* Estonia - [link](https://en.wikipedia.org/wiki/Public_holidays_in_Estonia)
+* **EST** Estonia - [link](https://en.wikipedia.org/wiki/Public_holidays_in_Estonia)
 
 ## Import
 JDK 8 or higher is required for the library to work.
