@@ -5,7 +5,11 @@ Check dates for holidays with this lightweight library.
 Only public holidays, i.e. non-working days, are taken into account.  
 
 ## Holidays
-Estonia - [link](https://en.wikipedia.org/wiki/Public_holidays_in_Estonia)
+Holidays for countries are read from JSON files included in the library.  
+Custom holidays are also supported.
+
+### Supported countries
+* Estonia - [link](https://en.wikipedia.org/wiki/Public_holidays_in_Estonia)
 
 ## Import
 JDK 8 or higher is required for the library to work.
