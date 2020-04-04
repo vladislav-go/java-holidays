@@ -1,4 +1,4 @@
-package ee.vladislav.exceptions;
+package com.github.vladislavgoltjajev.holidays;
 
 public final class HolidayException extends Exception {
 

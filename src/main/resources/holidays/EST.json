@@ -1,0 +1,63 @@
+{
+  "fixed": [
+    {
+      "day": 1,
+      "month": 1,
+      "name": "New Year's Day"
+    },
+    {
+      "day": 24,
+      "month": 2,
+      "name": "Independence Day"
+    },
+    {
+      "day": 1,
+      "month": 5,
+      "name": "Spring Day"
+    },
+    {
+      "day": 23,
+      "month": 6,
+      "name": "Victory Day"
+    },
+    {
+      "day": 24,
+      "month": 6,
+      "name": "Midsummer Day"
+    },
+    {
+      "day": 20,
+      "month": 8,
+      "name": "Day of Restoration of Independence"
+    },
+    {
+      "day": 24,
+      "month": 12,
+      "name": "Christmas Eve"
+    },
+    {
+      "day": 25,
+      "month": 12,
+      "name": "Christmas Day"
+    },
+    {
+      "day": 26,
+      "month": 12,
+      "name": "Boxing Day"
+    }
+  ],
+  "movable": [
+    {
+      "code": "GOOD_FRIDAY",
+      "name": "Good Friday"
+    },
+    {
+      "code": "EASTER_SUNDAY",
+      "name": "Easter Sunday"
+    },
+    {
+      "code": "PENTECOST",
+      "name": "Pentecost"
+    }
+  ]
+}
