@@ -2,7 +2,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/vladislavgoltjajev/java-isikukood/blob/master/LICENSE) 
 
 Check dates for holidays with this lightweight library.  
-Only public holidays are taken into account, i.e. non-working days.  
+Only public holidays, i.e. non-working days, are taken into account.  
 
 ## Holidays
 Estonia - [link](https://en.wikipedia.org/wiki/Public_holidays_in_Estonia)
