@@ -1,0 +1,64 @@
+{
+  "fixed": [
+    {
+      "name": "New Year's Day",
+      "day": 1,
+      "month": 1
+    },
+    {
+      "name": "Labor Day",
+      "day": 1,
+      "month": 5
+    },
+    {
+      "name": "Restoration of Independence Day",
+      "day": 4,
+      "month": 5,
+      "movedToMonday": true
+    },
+    {
+      "name": "Midsummer's Eve",
+      "day": 23,
+      "month": 6
+    },
+    {
+      "name": "Midsummer's Day",
+      "day": 24,
+      "month": 6
+    },
+    {
+      "name": "Proclamation Day of the Republic of Latvia",
+      "day": 18,
+      "month": 11,
+      "movedToMonday": true
+    },
+    {
+      "name": "Christmas Eve",
+      "day": 24,
+      "month": 12
+    },
+    {
+      "name": "Christmas Day",
+      "day": 25,
+      "month": 12
+    },
+    {
+      "name": "Second Day of Christmas",
+      "day": 26,
+      "month": 12
+    },
+    {
+      "name": "New Year's Eve",
+      "day": 31,
+      "month": 12
+    },
+    {
+      "name": "Good Friday",
+      "movableHolidayCode": "GOOD_FRIDAY"
+    },
+    {
+      "name": "Easter Monday",
+      "movableHolidayCode": "EASTER_MONDAY"
+    }
+  ]
+}

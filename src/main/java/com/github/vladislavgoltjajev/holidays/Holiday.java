@@ -1,15 +1,33 @@
 package com.github.vladislavgoltjajev.holidays;
 
-import lombok.Data;
+import lombok.*;
 
 import java.time.LocalDate;
 
-@Data
-public class Holiday {
+@Getter
+@ToString
+@EqualsAndHashCode
+public final class Holiday {
 
-    protected String name;
-    protected transient LocalDate date;
+    private String name;
+    private int day;
+    private int month;
+    private boolean movedToMonday;
+    private MovableHolidayCode movableHolidayCode;
 
-    Holiday() {
+    @Setter(AccessLevel.PACKAGE)
+    private transient LocalDate date;
+
+    Holiday(String name, int day, int month, boolean movedToMonday) {
+        this.name = name;
+        this.day = day;
+        this.month = month;
+        this.movedToMonday = movedToMonday;
+    }
+
+    Holiday(String name, MovableHolidayCode movableHolidayCode, boolean movedToMonday) {
+        this.name = name;
+        this.movableHolidayCode = movableHolidayCode;
+        this.movedToMonday = movedToMonday;
     }
 }

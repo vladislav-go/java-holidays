@@ -20,7 +20,7 @@ class CustomHolidayTest {
     @Test
     public void testFixedHoliday() {
         Holidays holidays = HolidayFactory.empty();
-        holidays.addFixedHoliday(new FixedHoliday("Custom holiday", 12, 1));
+        holidays.addFixedDateHoliday("Custom holiday", 12, 1);
         LocalDate date = LocalDate.of(2020, 1, 12);
         Holiday holiday = holidays.getHoliday(date);
         assertThat(holidays.isHoliday(date)).isTrue();
@@ -32,7 +32,7 @@ class CustomHolidayTest {
     @Test
     public void testMovableHoliday() {
         Holidays holidays = HolidayFactory.empty();
-        holidays.addMovableHoliday(new MovableHoliday("Custom Easter Sunday", MovableHolidayCode.EASTER_SUNDAY));
+        holidays.addMovableDateHoliday("Custom Easter Sunday", MovableHolidayCode.EASTER_SUNDAY);
         LocalDate date = LocalDate.of(2020, 4, 12);
         Holiday holiday = holidays.getHoliday(date);
         assertThat(holidays.isHoliday(date)).isTrue();
@@ -44,17 +44,15 @@ class CustomHolidayTest {
     @Test
     public void testCustomHolidayJson() {
         String json = "{" +
-                "  \"fixed\": [" +
+                "  \"holidays\": [" +
                 "    {" +
+                "      \"name\": \"Custom holiday\"," +
                 "      \"day\": 1," +
-                "      \"month\": 1," +
-                "      \"name\": \"Custom holiday\"" +
-                "    }" +
-                "  ]," +
-                "  \"movable\": [" +
+                "      \"month\": 1" +
+                "    }," +
                 "    {" +
-                "      \"code\": \"EASTER_SUNDAY\"," +
-                "      \"name\": \"Custom Easter Sunday\"" +
+                "      \"name\": \"Custom Easter Sunday\"," +
+                "      \"movableHolidayCode\": \"EASTER_SUNDAY\"" +
                 "    }" +
                 "  ]" +
                 "}";

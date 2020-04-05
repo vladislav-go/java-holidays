@@ -11,6 +11,7 @@ Custom holidays are also supported.
 
 ### Supported countries
 * **EST** Estonia - [holidays](https://en.wikipedia.org/wiki/Public_holidays_in_Estonia)
+* **LVA** Latvia - [holidays](https://en.wikipedia.org/wiki/Public_holidays_in_Latvia)
 
 ## Import
 JDK 8 or higher is required for the library to work.

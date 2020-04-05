@@ -3,12 +3,10 @@ package com.github.vladislavgoltjajev.holidays;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public final class Holidays {
 
-    private List<FixedHoliday> fixed = new ArrayList<>();
-    private List<MovableHoliday> movable = new ArrayList<>();
+    private List<Holiday> holidays = new ArrayList<>();
 
     public boolean isHolidayToday() {
         return isHoliday(LocalDate.now());
@@ -23,42 +21,78 @@ public final class Holidays {
     }
 
     public Holiday getHoliday(LocalDate date) {
-        int day = date.getDayOfMonth();
-        int month = date.getMonthValue();
-        int year = date.getYear();
-        Optional<FixedHoliday> fixedHolidayOptional = fixed.stream()
-                .filter(h -> h.getDay() == day && h.getMonth() == month)
-                .findFirst();
+        Holiday holiday = checkFixedDateHolidays(date);
 
-        if (fixedHolidayOptional.isPresent()) {
-            Holiday holiday = fixedHolidayOptional.get();
-            holiday.setDate(LocalDate.of(year, month, day));
+        if (holiday != null) {
             return holiday;
         }
 
-        for (MovableHoliday movableHoliday : movable) {
-            LocalDate holidayDate = MovableHolidayCalculator.getMovableHolidayDate(movableHoliday.getCode(), year);
+        holiday = checkMovableDateHolidays(date);
+        return holiday;
+    }
 
-            if (holidayDate.getDayOfMonth() == day && holidayDate.getMonthValue() == month) {
-                movableHoliday.setDate(holidayDate);
-                return movableHoliday;
+    public void addFixedDateHoliday(String name, int day, int month) {
+        addFixedDateHoliday(name, day, month, false);
+    }
+
+    public void addFixedDateHoliday(String name, int day, int month, boolean moveToMonday) {
+        holidays.removeIf(h -> h.getDay() == day && h.getMonth() == month);
+        holidays.add(new Holiday(name, day, month, moveToMonday));
+    }
+
+    public void addMovableDateHoliday(String name, MovableHolidayCode movableHolidayCode) {
+        addMovableDateHoliday(name, movableHolidayCode, false);
+    }
+
+    public void addMovableDateHoliday(String name, MovableHolidayCode movableHolidayCode, boolean moveToMonday) {
+        holidays.removeIf(h -> h.getMovableHolidayCode().equals(movableHolidayCode));
+        holidays.add(new Holiday(name, movableHolidayCode, moveToMonday));
+    }
+
+    private Holiday checkFixedDateHolidays(LocalDate date) {
+        int year = date.getYear();
+
+        for (Holiday holiday : holidays) {
+            if (holiday.getMovableHolidayCode() != null) {
+                continue;
+            }
+
+            LocalDate holidayDate = LocalDate.of(year, holiday.getMonth(), holiday.getDay());
+
+            if (holiday.isMovedToMonday()) {
+                holidayDate = HolidayCalculator.getNextMonday(holidayDate);
+            }
+
+            if (date.equals(holidayDate)) {
+                holiday.setDate(holidayDate);
+                return holiday;
             }
         }
 
         return null;
     }
 
-    public void addFixedHoliday(FixedHoliday fixedHoliday) {
-        if (fixed.stream().noneMatch(h -> h.getDay() == fixedHoliday.getDay()
-                && h.getMonth() == fixedHoliday.getMonth())) {
-            fixed.add(fixedHoliday);
-        }
-    }
+    private Holiday checkMovableDateHolidays(LocalDate date) {
+        int year = date.getYear();
 
-    public void addMovableHoliday(MovableHoliday movableHoliday) {
-        if (movable.stream().noneMatch(h -> h.getCode().equals(movableHoliday.getCode()))) {
-            movable.add(movableHoliday);
+        for (Holiday holiday : holidays) {
+            if (holiday.getMovableHolidayCode() == null) {
+                continue;
+            }
+
+            LocalDate holidayDate = HolidayCalculator.getMovableHolidayDate(holiday.getMovableHolidayCode(), year);
+
+            if (holiday.isMovedToMonday()) {
+                holidayDate = HolidayCalculator.getNextMonday(holidayDate);
+            }
+
+            if (date.equals(holidayDate)) {
+                holiday.setDate(holidayDate);
+                return holiday;
+            }
         }
+
+        return null;
     }
 
     Holidays() {

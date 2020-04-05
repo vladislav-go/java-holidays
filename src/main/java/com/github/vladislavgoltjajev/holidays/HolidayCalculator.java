@@ -4,16 +4,20 @@ package com.github.vladislavgoltjajev.holidays;
 import lombok.SneakyThrows;
 import lombok.experimental.UtilityClass;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.temporal.TemporalAdjusters;
 
 @UtilityClass
-final class MovableHolidayCalculator {
+final class HolidayCalculator {
 
     @SneakyThrows
     public LocalDate getMovableHolidayDate(MovableHolidayCode holidayCode, int year) {
         switch (holidayCode) {
             case EASTER_SUNDAY:
                 return getEasterSundayDate(year);
+            case EASTER_MONDAY:
+                return getEasterSundayDate(year).plusDays(1);
             case GOOD_FRIDAY:
                 return getEasterSundayDate(year).minusDays(2);
             case PENTECOST:
@@ -21,6 +25,10 @@ final class MovableHolidayCalculator {
             default:
                 throw new HolidayException("Could not determine date for holiday " + holidayCode);
         }
+    }
+
+    public LocalDate getNextMonday(LocalDate date) {
+        return date.with(TemporalAdjusters.next(DayOfWeek.MONDAY));
     }
 
     /**

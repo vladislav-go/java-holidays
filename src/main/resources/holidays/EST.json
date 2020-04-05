@@ -1,63 +1,61 @@
 {
-  "fixed": [
+  "holidays": [
     {
+      "name": "New Year's Day",
       "day": 1,
-      "month": 1,
-      "name": "New Year's Day"
+      "month": 1
     },
     {
+      "name": "Independence Day",
       "day": 24,
-      "month": 2,
-      "name": "Independence Day"
+      "month": 2
     },
     {
+      "name": "Spring Day",
       "day": 1,
-      "month": 5,
-      "name": "Spring Day"
+      "month": 5
     },
     {
+      "name": "Victory Day",
       "day": 23,
-      "month": 6,
-      "name": "Victory Day"
+      "month": 6
     },
     {
+      "name": "Midsummer Day",
       "day": 24,
-      "month": 6,
-      "name": "Midsummer Day"
+      "month": 6
     },
     {
+      "name": "Day of Restoration of Independence",
       "day": 20,
-      "month": 8,
-      "name": "Day of Restoration of Independence"
+      "month": 8
     },
     {
+      "name": "Christmas Eve",
       "day": 24,
-      "month": 12,
-      "name": "Christmas Eve"
+      "month": 12
     },
     {
+      "name": "Christmas Day",
       "day": 25,
-      "month": 12,
-      "name": "Christmas Day"
+      "month": 12
     },
     {
+      "name": "Boxing Day",
       "day": 26,
-      "month": 12,
-      "name": "Boxing Day"
-    }
-  ],
-  "movable": [
-    {
-      "code": "GOOD_FRIDAY",
-      "name": "Good Friday"
+      "month": 12
     },
     {
-      "code": "EASTER_SUNDAY",
-      "name": "Easter Sunday"
+      "name": "Good Friday",
+      "movableHolidayCode": "GOOD_FRIDAY"
     },
     {
-      "code": "PENTECOST",
-      "name": "Pentecost"
+      "name": "Easter Sunday",
+      "movableHolidayCode": "EASTER_SUNDAY"
+    },
+    {
+      "name": "Pentecost",
+      "movableHolidayCode": "PENTECOST"
     }
   ]
 }
